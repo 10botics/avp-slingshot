@@ -1,4 +1,4 @@
-﻿using Input;
+using Input;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -16,7 +16,7 @@ namespace Objects
 
         public void OnSpatialPointerMove(SpatialPointerState state)
         {
-            transform.position += state.deltaInteractionPosition;
+            transform.position = state.inputDevicePosition;
         }
 
         public void OnSpatialPointerUp(SpatialPointerState state)
