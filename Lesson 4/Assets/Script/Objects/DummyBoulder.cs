@@ -1,4 +1,4 @@
-﻿using Input;
+using Input;
 using UnityEngine;
 using UnityEngine.InputSystem.LowLevel;
 
@@ -6,8 +6,8 @@ namespace Objects
 {
     public class DummyBoulder : MonoBehaviour, ISpatialPointerDownListener, ISpatialPointerMoveListener, ISpatialPointerUpListener
     {
-        [SerializeField] private Transform shade;
         [SerializeField] private Rigidbody boulder;
+        [SerializeField] private Transform shade;
 
         private Transform shadeInstance;
         private Vector3 dragBeginPosition = Vector3.zero;
@@ -15,12 +15,14 @@ namespace Objects
         public void OnSpatialPointerDown(SpatialPointerState state)
         {
             dragBeginPosition = state.inputDevicePosition;
-            shadeInstance = Instantiate(shade, state.inputDevicePosition, Quaternion.identity, transform);
+
+            shadeInstance = Instantiate(shade, dragBeginPosition, Quaternion.identity, transform);
         }
 
         public void OnSpatialPointerMove(SpatialPointerState state)
         {
             transform.position = state.inputDevicePosition;
+
             shadeInstance.position = dragBeginPosition;
         }
 

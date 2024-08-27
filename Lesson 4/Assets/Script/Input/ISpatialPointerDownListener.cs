@@ -1,9 +1,9 @@
-﻿using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace Input
 {
-    public interface ISpatialPointerDownListener
+    public interface ISpatialPointerDownListener 
     {
-        public void OnSpatialPointerDown(SpatialPointerState state);
+        void OnSpatialPointerDown(SpatialPointerState state);
     }
 }
